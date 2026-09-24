@@ -1,3 +1,5 @@
+# In conftest.py file, we contains reusable fixtures for driver setup, test data and database connection
+
 from selenium import webdriver
 import pytest
 from test_data.home_page_test_data import HomePageTestData
