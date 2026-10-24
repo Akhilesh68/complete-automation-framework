@@ -5,7 +5,7 @@ import pytest
 from pytest_check import check
 
 
-# @pytest.mark.sanity
+@pytest.mark.smoke
 def test_form_submission(setup, fetch_valid_home_data):
     homepage = HomePage(setup)
     homepage.enter_name(fetch_valid_home_data['name'])
@@ -18,7 +18,8 @@ def test_form_submission(setup, fetch_valid_home_data):
     check.is_true('Success12',msg) # Soft assertion
 
 
-# @pytest.mark.regression
+# @pytest.mark.pending
+@pytest.mark.pending
 def test_invalid_form_submission(setup, fetch_invalid_home_data):
     homepage = HomePage(setup)
     homepage.enter_name(fetch_invalid_home_data['name'])
@@ -28,3 +29,5 @@ def test_invalid_form_submission(setup, fetch_invalid_home_data):
     msg = homepage.alert_msg()
     print(msg)
     assert 'Success' in msg
+
+    # assert True
